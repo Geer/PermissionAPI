@@ -4,8 +4,6 @@ using PermissionAPI.Dto;
 using PermissionAPI.Model;
 using PermissionAPI.Repository;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace PermissionAPI.Controllers
 {
 
@@ -59,11 +57,11 @@ namespace PermissionAPI.Controllers
         // POST api/<PermissionController>
         [HttpPost]
         [Route("api/permission")]
-        public ActionResult Post([FromBody] PermissionCreateInput permission)
+        public async Task<IActionResult> Post([FromBody] PermissionCreateInput permission)
         {
             if (permission == null)
             {
-                return BadRequest();
+                return this.BadRequest();
             }
             try
             {
@@ -81,7 +79,7 @@ namespace PermissionAPI.Controllers
         // PUT api/<PermissionController>/5
         [HttpPut]
         [Route("api/permission/{id}")]
-        public ActionResult Put(int id, [FromBody] PermissionUpdateInput permission)
+        public async Task<IActionResult> Put(int id, [FromBody] PermissionUpdateInput permission)
         {
             try
             {
@@ -99,7 +97,7 @@ namespace PermissionAPI.Controllers
         // DELETE api/<PermissionController>/5
         [HttpDelete]
         [Route("api/permission/{id}")]
-        public ActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             try
             {

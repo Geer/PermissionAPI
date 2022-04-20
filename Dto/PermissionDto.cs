@@ -15,6 +15,8 @@ namespace PermissionAPI.Dto
         public int PermissionTypeId { get; set; }
 
         [DisplayFormat(DataFormatString = "dd/MM/yyyy")]
+        public string DateStr { get; set; }
+
         public DateTime Date { get; set; }
     }
 }

@@ -9,7 +9,8 @@ namespace PermissionAPI.Dto
         {
             CreateMap<Permission, PermissionDto>()
                 .ForMember(dest => dest.PermissionTypeName, src => src.MapFrom(opt => opt.PermissionType.Name))
-                .ForMember(dest => dest.PermissionTypeId, src => src.MapFrom(opt => opt.PermissionType.Id));
+                .ForMember(dest => dest.PermissionTypeId, src => src.MapFrom(opt => opt.PermissionType.Id))
+                .ForMember(dest => dest.DateStr, src => src.MapFrom(opt => opt.Date.ToString("dd/MM/yyyy")));
 
             CreateMap<PermissionCreateInput, Permission>();
 
