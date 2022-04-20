@@ -9,7 +9,7 @@ namespace PermissionAPI.Repository
 
         Task<Permission> GetPermissionById(int id);
 
-        void insert(Permission permission);
+        Permission insert(Permission permission);
         
         void Delete(int id);
         

@@ -63,11 +63,12 @@ namespace PermissionAPI.Controllers
             {
                 return this.BadRequest();
             }
+
             try
             {
                 var permissionData = this.Mapper.Map<Permission>(permission);
-                this.PermissionRepository.insert(permissionData);
-                return this.Ok();
+                var permissionDto = Mapper.Map<PermissionDto>(this.PermissionRepository.insert(permissionData));
+                return this.Created(String.Empty, permissionDto);
             }
             catch (Exception e)
             {

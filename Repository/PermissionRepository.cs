@@ -65,10 +65,11 @@ namespace PermissionAPI.Repository
                 .Include(p => p.PermissionType)
                 .Where(p => p.Id == id).FirstOrDefaultAsync();
 
-        public void insert(Permission permission)
+        public Permission insert(Permission permission)
         {
             this.Context.Permissions.Add(permission);
             this.Context.SaveChanges();
+            return permission;
         }
 
         public void Update(Permission permission)
